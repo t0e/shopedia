@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block page-header %}
+<div class="page-header header-filter" data-parallax="true" style="background-image: url({% static 'img/bianca.jpg' %});">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="title">Busy At Work?</h1>
+        <h4>Order anything from favourite shops near you.</h4>
+        <br>
+        <a href="/store-locator" class="btn btn-info btn-raised btn-lg">Find Shops</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="section">
+    <div class="container">
+      <h2 class="section-title">Browse By Category</h2>
+      <div class="row">
+        <div class="col-md">
+          <div class="card uk-inline-clip uk-transition-toggle uk-light category-card" tabindex="0">
+            <img src="{% static 'img/categories/food.jpg' %}" alt="">
+            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+            </div>
+            <div class="uk-position-center">
+              <div class="uk-transition-slide-top-small"><h4 class="title">Food</h4></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card uk-inline-clip uk-transition-toggle uk-light category-card" tabindex="0">
+            <img src="{% static 'img/categories/clothes.jpg' %}" alt="">
+            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+            </div>
+            <div class="uk-position-center">
+              <div class="uk-transition-slide-top-small"><h4 class="title">Clothes & Accessories</h4></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card uk-inline-clip uk-transition-toggle uk-light category-card" tabindex="0">
+            <img src="{% static 'img/categories/books.jpg' %}" alt="">
+            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+            </div>
+            <div class="uk-position-center">
+              <div class="uk-transition-slide-top-small"><h4 class="title">Books</h4></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <div class="card uk-inline-clip uk-transition-toggle uk-light category-card" tabindex="0">
+            <img src="{% static 'img/categories/stationery.jpg' %}" alt="">
+            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+            </div>
+            <div class="uk-position-center">
+              <div class="uk-transition-slide-top-small"><h4 class="title">Stationery</h4></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card uk-inline-clip uk-transition-toggle uk-light category-card" tabindex="0">
+            <img src="{% static 'img/categories/computers.jpg' %}" alt="">
+            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+            </div>
+            <div class="uk-position-center">
+              <div class="uk-transition-slide-top-small"><h4 class="title">Electronics</h4></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card uk-inline-clip uk-transition-toggle uk-light category-card" tabindex="0">
+            <img src="{% static 'img/categories/hardware.jpg' %}" alt="">
+            <div class="uk-transition-fade uk-position-cover uk-overlay uk-overlay-primary uk-flex uk-flex-center uk-flex-middle">
+            </div>
+            <div class="uk-position-center">
+              <div class="uk-transition-slide-top-small"><h4 class="title">Hardware</h4></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Shops</h2>
+      <div class="row">
+        {% for shop in shops %}
+          {% if forloop.counter <= 3 %}
+             <div class="col-md">
+              <div class="card shop-card" style="width: 20rem;">
+                <div class="card-header img-header">
+                  <img class="card-img-top" src="/media/shops/{{shop.fields.shop_image}}" alt="Card image cap">
+                </div>
+                
+                <div class="card-body">
+                  <a href="/shop/{{shop.fields.shop_id}}"><h4 class="card-title">{{shop.fields.shop_name}}</h4></a>
+                  <h6 class="card-category text-info">Chicken Restaurant</h6>
+                  <p>Fast food restaurant that specializes in fried chicken</p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section section-contacts">
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto">
+        <h2 class="text-center title">Work with us</h2>
+        <h4 class="text-center description">Divide details about your product or agency work into parts. Write a few lines about each one and contact us about any further collaboration. We will responde get back to you in a couple of hours.</h4>
+        <form class="contact-form">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Your Name</label>
+                <input type="email" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Your Email</label>
+                <input type="email" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
+            <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-md-4 ml-auto mr-auto text-center">
+              <button class="btn btn-primary btn-raised">
+                Send Message
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

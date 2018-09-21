@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'css/shop.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block page-header %}
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('/media/shops/1537453204476.jpg');">
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="section">
+		<div class="container">
+			<h2 class="section-title">Find What You Need</h2>
+			{% for item in items %}
+			{% if forloop.first %}
+			<div class="row">
+			{% endif %}
+
+				<div class="col-md">
+					<div class="card" style="width: 20rem;">
+						<img class="card-img-top" src="/media/items/{{item.fields.item_image}}" alt="Card image cap">
+						<div class="card-body">
+							<a href="/item"><h4 class="card-title">{{ item.fields.item_name }}</h4></a>
+							<p class="float-left text-info"><b>{{ item.fields.price }} Kyats</b></p>
+							<div class="float-right">
+								<a href="" class="text-info uk-padding-right"><i class="fa fa-2x fa-cart-plus"></i></a>
+								<a href="" class="text-info uk-padding-right"><i class="fa fa-2x fa-heart-o"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			{% if forloop.last %}
+				</div>
+			{% elif forloop.counter|divisibleby:"3" %}
+				</div>
+				<div class="row">
+			{% endif %}
+
+			{% endfor %}
+
+
+		</div>
+
+	</div>
+
+
+	
+	<div class="section section-contacts">
+		<div class="row">
+			<div class="col-md-8 ml-auto mr-auto">
+				<h2 class="text-center title">Work with us</h2>
+				<h4 class="text-center description">Divide details about your product or agency work into parts. Write a few lines about each one and contact us about any further collaboration. We will responde get back to you in a couple of hours.</h4>
+				<form class="contact-form">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="bmd-label-floating">Your Name</label>
+								<input type="email" class="form-control">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="bmd-label-floating">Your Email</label>
+								<input type="email" class="form-control">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="exampleMessage" class="bmd-label-floating">Your Message</label>
+						<textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+					</div>
+					<div class="row">
+						<div class="col-md-4 ml-auto mr-auto text-center">
+							<button class="btn btn-primary btn-raised">
+								Send Message
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

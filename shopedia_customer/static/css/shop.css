@@ -1,0 +1,7 @@
+.page-header{
+  height: 400px !important;
+}
+
+.item-img{
+  box-shadow: 0 5px 15px -8px rgba(0,0,0,.24),0 8px 10px -5px rgba(0,0,0,.2);
+}

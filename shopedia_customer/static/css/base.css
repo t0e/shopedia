@@ -1,0 +1,36 @@
+.nav-title{
+	font-weight: 700 !important;
+}
+
+form.searchbox{
+	padding-right: 100px;
+	padding-left: 100px;
+}
+
+
+.footer-black{
+	background: radial-gradient(ellipse at center,#585858 0,#232323 100%);
+	background-size: 550% 450%;
+	color: #fff !important;
+}
+
+.login-modal-content{
+	background: transparent !important;
+	box-shadow: none !important;
+}
+
+.login-modal{
+	background: transparent !important;
+}
+
+.nav-item.col{
+	padding: 0px !important;
+}
+
+.login-form, .register-form{
+	width: 300px;
+}
+
+.modal-dialog{
+	max-width: 300px !important;
+}
