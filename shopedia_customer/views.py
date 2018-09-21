@@ -9,7 +9,7 @@ def index(request):
 	if 'username' not in request.session.keys():
 		user = None
 	else:
-		user = User.objects.get(username=request.session['username'])
+		user = json.loads(serializers.serialize('json', User.objects.filter(username=request.session['username'])))[0]
 
 	shops = json.loads(serializers.serialize('json', Shops.objects.all()))
 	return render(request, 'index.html', {"shops": shops, "user": user})
@@ -25,7 +25,7 @@ def register(request):
 		print(data)
 		user = User(username=data['username'], email=data['email'], phone_number=data['phone_number'] ,password=data['password'])
 		user.save()
-		user = User.objects.get(username = data['username'])
+		user = json.loads(serializers.serialize('json', User.objects.filter(username=data['username'])))[0]
 		request.session['username'] = str(user.username)
 	shops = json.loads(serializers.serialize('json', Shops.objects.all()))
 	return render(request, 'index.html', {"shops": shops, "user":user})

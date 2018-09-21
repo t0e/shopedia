@@ -25,7 +25,7 @@
   <script src="{% static 'js/uikit-icons.min.js' %}"></script>
   {% block css %}{% endblock %}
 </head>
-
+{{ user }}
 <body class="sidebar-collapse">
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
@@ -48,12 +48,29 @@
             <a class="nav-link" href="javascript:void(0)" uk-icon="cart">
             </a>
           </li>
+          {% if use %}
+          <li class="dropdown nav-item">
+            <a href="#pablo" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
+              <div class="profile-photo-small">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Circle Image" class="rounded-circle img-fluid">
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="#pablo" class="dropdown-item">{{ user.fields.username }}</a>
+              <a href="#pablo" class="dropdown-item">Settings</a>
+              <a href="#pablo" class="dropdown-item">Sign out</a>
+            </div>
+          </li>
+          
+          {% else %}
+          
           <li class="nav-item">
             <!-- <a class="nav-link" href="/login" uk-icon="user">
             </a> -->
             <button class="nav-link" data-toggle="modal" data-target="#exampleModal" uk-icon="user">
             </button>
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>
@@ -113,124 +130,124 @@
                           </form>
                         </div>
                         <div class="tab-pane" id="messages">
-                            <div class="social text-center">
-                              <button class="btn btn-just-icon btn-round btn-dribbble">
-                                <i class="fa fa-google"></i>
-                              </button>
-                              <button class="btn btn-just-icon btn-round btn-facebook">
-                                <i class="fa fa-facebook"> </i>
-                              </button>
-                              <h4> or be classical </h4>
-                            </div>
-                            <form class="form register-form" method="post" action="register/">
-                              {% csrf_token %}
-                              <div class="card-body">
-                                <div class="form-group">
-                                  <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Name" name="username">
-                                  </div>
-                                </div>
-
-                                <div class="form-group">
-                                  <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Email" name="email">
-                                  </div>
-                                </div>
-
-                                <div class="form-group">
-                                  <div class="input-group">
-                                    <input type="text" placeholder="Phone Number" class="form-control" name="phone_number" />
-                                  </div>
-                                </div>
-
-                                <div class="form-group">
-                                  <div class="input-group">
-                                    <input type="password" placeholder="Password" class="form-control" name="password" />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="modal-footer justify-content-center">
-                                <input type="submit" class="btn btn-info btn-round" value="Register">
-                                <!-- <a href="#pablo" class="btn btn-info btn-round">Register</a> -->
-                              </div>
-                            </form>
+                          <div class="social text-center">
+                            <button class="btn btn-just-icon btn-round btn-dribbble">
+                              <i class="fa fa-google"></i>
+                            </button>
+                            <button class="btn btn-just-icon btn-round btn-facebook">
+                              <i class="fa fa-facebook"> </i>
+                            </button>
+                            <h4> or be classical </h4>
                           </div>
+                          <form class="form register-form" method="post" action="register/">
+                            {% csrf_token %}
+                            <div class="card-body">
+                              <div class="form-group">
+                                <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Name" name="username">
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Email" name="email">
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="input-group">
+                                  <input type="text" placeholder="Phone Number" class="form-control" name="phone_number" />
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <div class="input-group">
+                                  <input type="password" placeholder="Password" class="form-control" name="password" />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                              <input type="submit" class="btn btn-info btn-round" value="Register">
+                              <!-- <a href="#pablo" class="btn btn-info btn-round">Register</a> -->
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
-                    <!-- End Tabs with icons on Card -->
                   </div>
+                  <!-- End Tabs with icons on Card -->
                 </div>
               </div>
             </div>
           </div>
-
         </div>
+
       </div>
     </div>
+  </div>
 
-    {% block page-header %}{% endblock %}
+  {% block page-header %}{% endblock %}
 
-    <div class="main">
-      {% block content %}{% endblock %}
-    </div>
-    <footer class="footer footer-black">
-      <div class="container">
-        <div class="row">
-          <nav class="float-left col-md">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Shopedia
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <nav class="float-right col-md">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  <i class="fa fa-github"></i>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+  <div class="main">
+    {% block content %}{% endblock %}
+  </div>
+  <footer class="footer footer-black">
+    <div class="container">
+      <div class="row">
+        <nav class="float-left col-md">
+          <ul>
+            <li>
+              <a href="https://www.creative-tim.com">
+                Shopedia
+              </a>
+            </li>
+            <li>
+              <a href="https://creative-tim.com/presentation">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="http://blog.creative-tim.com">
+                Contact Us
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <nav class="float-right col-md">
+          <ul>
+            <li>
+              <a href="https://www.creative-tim.com">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://creative-tim.com/presentation">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://blog.creative-tim.com">
+                <i class="fa fa-github"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </footer>
-    <!--   Core JS Files   -->
+    </div>
+  </footer>
+  <!--   Core JS Files   -->
 
 
-    <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/core/bootstrap-material-design.min.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/plugins/moment.min.js' %}"></script>
-    <script src="{% static 'js/plugins/bootstrap-datetimepicker.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/plugins/nouislider.min.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/plugins/jquery.sharrre.js' %}" type="text/javascript"></script>
-    <script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
-    <!-- <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script> -->
-    <!-- <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script> -->
-  </body>
+  <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/core/popper.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/core/bootstrap-material-design.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/moment.min.js' %}"></script>
+  <script src="{% static 'js/plugins/bootstrap-datetimepicker.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/nouislider.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/plugins/jquery.sharrre.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/material-kit.js' %}" type="text/javascript"></script>
+  <!-- <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script> -->
+  <!-- <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script> -->
+</body>
 
-  </html>
+</html>
