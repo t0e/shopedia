@@ -12,6 +12,7 @@ form.searchbox{
 	background: radial-gradient(ellipse at center,#585858 0,#232323 100%);
 	background-size: 550% 450%;
 	color: #fff !important;
+	height: 10vh !important;
 }
 
 .login-modal-content{

@@ -14082,7 +14082,7 @@ textarea {
 .navbar.bg-primary .dropdown-item:hover,
 .navbar.bg-primary .dropdown-item:focus {
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
-  background-color: #9c27b0;
+  background-color: #9c27b0; 
   color: #fff;
 }
 
@@ -14604,7 +14604,7 @@ textarea {
 }
 
 .info p {
-  color: #999999;
+  color: #555;
 }
 
 .info-horizontal .icon {
@@ -14776,7 +14776,7 @@ h2.title {
 .description,
 .card-description,
 .footer-big p {
-  color: #999;
+  color: #555;
 }
 
 .text-warning {
@@ -15278,7 +15278,7 @@ h2.title {
 .dropdown-menu a:focus,
 .dropdown-menu a:active {
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
-  background-color: #9c27b0;
+  background-color: #00aec5;
   color: #FFFFFF;
 }
 

@@ -30,7 +30,7 @@
 
   <style type="text/css">
     .marker {
-  background-image: url({% static 'img/marker.png' %});
+  background-image: url({% static 'img/shop-marker.png' %});
 }
 
   </style>
@@ -52,9 +52,6 @@
 
     <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
     <div class="modal-dialog modal-full-height modal-left" role="document">
-
-
-
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Nearby Shops</h4>
@@ -76,11 +73,13 @@
     <!-- /Start your project here-->
 
     <!-- SCRIPTS -->
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 
+    <!-- <script type="text/javascript" src="{% static 'js/shop-locator.js' %}"></script> -->
     <script type="text/javascript" src="{% static 'js/store-locator.js' %}"></script>
 
     <!-- JQuery -->
-    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
     <!-- Bootstrap core JavaScript -->

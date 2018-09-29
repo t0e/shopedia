@@ -1,7 +1,12 @@
 .page-header{
-  height: 400px !important;
+  height: 500px !important;
 }
 
 .item-img{
   box-shadow: 0 5px 15px -8px rgba(0,0,0,.24),0 8px 10px -5px rgba(0,0,0,.2);
+}
+
+.item-image{
+  width: 320px !important;
+  height: 250px !important;
 }

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_tags %} 
+
+{% block css %}
+<link href="{% static 'css/shop.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/jquery/add-to-cart.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+
+{% block page-header %}
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{% static 'img/baggerman.jpg' %}');">
+	<div class="container">
+          <h3 class="title text-center"><i>"Save your time and buy everything through Shopedia"</i></h3>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+
+	<div class="section text-center">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="title">Our mission</h2>
+            <h5 class="description">Shopedia is an online shopping app that the users can buy the products from nearby shops. Shopedia was inspired by the thought of providing a complete ordering system from best neighbourhood shops to urban stores. Shopedia offers a single window for ordering from a wide range of shops.</h5>
+          </div>
+        </div>
+        <div class="features">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-info">
+                  <i class="material-icons">map</i>
+                </div>
+                <h4 class="info-title">Nearby Shops with map</h4>
+                <p>Explore nearby shops in clean and tidy map to find out your needs.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-success">
+                  <i class="material-icons">shopping_basket</i>
+                </div>
+                <h4 class="info-title">No Minimun Order</h4>
+                <p>There is no limit to the order value and you can order for yourself or for the group</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="info">
+                <div class="icon icon-danger">
+                  <i class="material-icons">share</i>
+                </div>
+                <h4 class="info-title">Share Favies</h4>
+                <p>If you are statisfied with the services of the shop, you can easily share that shops to your friends via facebook.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock %}
