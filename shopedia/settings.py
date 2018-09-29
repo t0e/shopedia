@@ -25,7 +25,7 @@ SECRET_KEY = 'sn7s$9jslf*z)cygdnvwr7$!&(o5jtyhvs3k@uv7=@7%&6(h@-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['thetmaung.local', '127.0.0.1', '192.168.10.156']
+ALLOWED_HOSTS = ['thetmaung.local', '127.0.0.1', '192.168.8.100', 'localhost', 'shopedia.com']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shopedia_customer',
+    'sslserver',
 ]
 
 MIDDLEWARE = [

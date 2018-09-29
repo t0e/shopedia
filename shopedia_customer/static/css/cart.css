@@ -1,0 +1,19 @@
+.page-header{
+  height: 40vh !important;
+}
+
+.cart-container{
+	min-height: 50vh !important;
+}
+
+.table-cart > thead > tr > th{
+	font-size: 1rem;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th{
+	padding: 12px 8px;
+	vertical-align: middle;
+	border-color: #ddd;
+}

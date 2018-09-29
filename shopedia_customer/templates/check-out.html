@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_tags %} 
+
+{% block css %}
+<link href="{% static 'css/cart.css' %}" rel="stylesheet" />
+{% endblock %}
+
+<!-- {% block js %}
+<script type="text/javascript">
+$(document).ready(function() {
+    {% with data=items %}  
+    $('#zzz').click(function(e){
+    	// var id = $(this).attr('item_id');
+    	console.log('{{data}}')
+    	console.log('{{ "a"|remove_item:"2" }}')
+    });
+    {% endwith %}
+});
+</script>
+{% endblock %} -->
+
+
+{% block page-header %}
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('/media/shops/1537453204476.jpg');">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h2 class="title text-center">Check Out Page</h2>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container cart-container">
+	<div class="table-responsive">
+		<table class="table table-cart">
+			<thead>
+				<tr>
+					<th></th>
+					<th class="text-center">Item Name</th>
+					<th class="text-center">Price</th>
+					<th class="text-center">Qty</th>
+					<th class="text-center">Amount</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% to_list items sub_total internet_transaction_fees total as data %}   
+				{% for item in items %}
+				<tr>
+					<td class="text-center">
+						<img src="/media/items/{{item.fields.item_image}}" width="100px" height="100px">
+					</td>
+					<td class="text-center"><h5 class="title">{{item.fields.item_name}}</h5></td>
+					<td class="text-center">{{ item.fields.price }} Kyats</td>
+					<td class="text-center">{{ item.fields.qty }}</td>
+					<td class="text-center">{{ item.fields.amount }}</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<td colspan="4" class="text-right">
+						<h4 class="">Sub Total</h4>
+						<h4 class="">Internet Transaction Fee (5%)</h4>
+						<h4 class="title">Total</h4>
+					</td>
+
+					<td class="text-right">
+						<h5 class="">{{ sub_total }} Kyats</h5>
+						<h5 class="">{{ internet_transaction_fees }} Kyats</h5>
+						<h4 class="title">{{ total }} Kyats</h4>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="5" class="text-right">
+						<a class="btn btn-info" href="/complete-purchase/{{ data|change_url}}">Complete Purchase</a>
+					</td>
+				</tr>
+			</tr>
+		</tbody>
+	</table>
+	<a class="btn btn-info" id="zzz" item_id="1">Complete Purchase</a>
+</div>
+
+
+</div>
+{% endblock %}

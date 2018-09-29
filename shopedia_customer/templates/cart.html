@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_tags %} 
+
+{% block css %}
+<link href="{% static 'css/cart.css' %}" rel="stylesheet" />
+{% endblock %}
+
+
+{% block page-header %}
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('/media/shops/1537453204476.jpg');">
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="title text-center">Shopping Cart</h2>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container cart-container">
+	<div class="table-responsive">
+		<table class="table table-cart">
+			<thead>
+				<tr>
+					<th></th>
+					<th class="text-center">Item Name</th>
+					<th class="text-center">Price</th>
+					<th class="text-center">Qty</th>
+					<th class="text-center">Amount</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in items %}
+					<tr>
+						<td class="text-center">
+							<img src="/media/items/{{item.fields.item_image}}" width="100px" height="100px"></td>
+						<td class="text-center"><h5 class="title">{{item.fields.item_name}}</h5></td>
+						<td class="text-center">{{ item.fields.price }} Kyats</td>
+						<td class="text-center">{{ item.fields.qty }}</td>
+						<td class="text-center">{{ item.fields.amount }}</td>
+						<!-- <td><i class="fa fa-times"></i></td> -->
+					</tr>
+				{% endfor %}
+				<tr>
+					<td colspan="3" class="text-right"><h4 class="title">Total</h4></td>
+					<td><h4 class="title">{{ total }} Kyats</h4></td>
+					<td><a class="btn btn-info" href="/check-out">Checkout</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+{% endblock %}
