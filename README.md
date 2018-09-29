@@ -1,6 +1,6 @@
 # Shopedia
 
-Shopping app for nearby shopsr development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Shopping app for nearby shops
 
 ### Prerequisites
 
