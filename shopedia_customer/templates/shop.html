@@ -14,17 +14,17 @@
 {% block page-header %}
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('/media/shops/{{shop.fields.shop_image}}');">
 	<div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1 class="title">{{ shop.fields.shop_name }}</h1>
-          <h4>{{ shop.fields.description }}</h4>
-          <br>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-info btn-raised">
-            <i class="fa fa-share"></i> Share this shop
-          </a>
-        </div>
-      </div>
-    </div>
+		<div class="row">
+			<div class="col-md-6">
+				<h1 class="title">{{ shop.fields.shop_name }}</h1>
+				<h4>{{ shop.fields.description }}</h4>
+				<br>
+				<a href="http://www.facebook.com/sharer.php?https://shopedia.com:8000/shop/{{shop.fields.shop_id}}" target="_blank" class="btn btn-info btn-raised">
+					<i class="fa fa-share"></i> Share this shop
+				</a>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}
 
@@ -37,7 +37,7 @@
 			{% for item in items %}
 			{% if forloop.first %}
 			<div class="row">
-			{% endif %}
+				{% endif %}
 
 				<div class="col-md">
 					<div class="card" style="width: 20rem;">
@@ -53,11 +53,11 @@
 					</div>
 				</div>
 
-			{% if forloop.last %}
-				</div>
+				{% if forloop.last %}
+			</div>
 			{% elif forloop.counter|divisibleby:"3" %}
-				</div>
-				<div class="row">
+		</div>
+		<div class="row">
 			{% endif %}
 
 			{% endfor %}
