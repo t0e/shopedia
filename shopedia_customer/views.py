@@ -119,7 +119,11 @@ def check_out(request):
 		return render(request, 'cart-empty.html', {"user": user})
 
 def item(request):
-	return render(request, 'item.html')
+	if 'user_id' not in request.session.keys():
+		user = None
+	else:
+		user = json.loads(serializers.serialize('json', User.objects.filter(user_id=request.session['user_id'])))[0]
+	return render(request, 'item.html', {"user": user})
 
 def cart(request):
 	if 'user_id' not in request.session.keys():
@@ -176,6 +180,11 @@ def get_shop_list(request):
 			return JsonResponse({'shops':shops})
 
 def complete_purchase(request, data):
+	if 'user_id' not in request.session.keys():
+		user = None
+	else:
+		user = json.loads(serializers.serialize('json', User.objects.filter(user_id=request.session['user_id'])))[0]
+
 	data = ast.literal_eval(str(auth.decrypt(data)))
 	content = json.loads(json.dumps(data))
 	millis = int(round(time.time() * 1000))
@@ -186,8 +195,13 @@ def complete_purchase(request, data):
 	order = Orders(order_id=millis, user_id=1, items=items, sub_total=float(content[1]) , internet_transaction_fee=float(content[2]), total=float(content[3]))
 	order.save()
 	del request.session['cart']
-	return render(request, 'thank-you-page.html')
+	return render(request, 'thank-you-page.html', {"user": user})
 
 
 def about_us(request):
-	return render(request, 'about-us.html')
+	if 'user_id' not in request.session.keys():
+		user = None
+	else:
+		user = json.loads(serializers.serialize('json', User.objects.filter(user_id=request.session['user_id'])))[0]
+
+	return render(request, 'about-us.html', {"user": user})
