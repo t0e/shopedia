@@ -43,11 +43,11 @@
 					<div class="card" style="width: 20rem;">
 						<img class="card-img-top item-image" src="/media/items/{{item.fields.item_image}}" alt="{{ item.fields.item_name }}">
 						<div class="card-body">
-							<a href="/item"><h4 class="card-title">{{ item.fields.item_name }}</h4></a>
+							<h4 class="card-title">{{ item.fields.item_name }}</h4>
 							<p class="float-left text-info"><b>{{ item.fields.price }} Kyats</b></p>
 							<div class="float-right">
 								<!-- {% create_list user.fields.username item.fields.item_id as ll %}      -->
-								<a class="text-info uk-padding-right add-to-cart" user_id={{user.fields.user_id}} itemid={{item.fields.item_id}}><i class="fa fa-2x fa-cart-plus"></i></a>
+								<a class="text-info uk-padding-right add-to-cart" user_id={% if user.fields.user_id %}{{user.fields.user_id}}{% else %}anonymous{% endif %} itemid={{item.fields.item_id}}><i class="fa fa-2x fa-cart-plus"></i></a>
 							</div>
 						</div>
 					</div>
