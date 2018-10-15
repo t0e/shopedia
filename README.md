@@ -22,7 +22,7 @@ Import json collections to shopedia database
 
 Go To Project folder and change driectory as followed.
 ```
-cd shopedia.json/shopedia
+cd databasefiles/shopedia
 
 ```
 
