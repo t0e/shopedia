@@ -1,0 +1,5 @@
+__pycache__/
+shopedia/__pycache__/
+shopedia_customer/__pycache__/
+shopedia_customer/migrations/__pycache__/
+shopedia_customer/template_tags/__pycache__/
