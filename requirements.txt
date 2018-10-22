@@ -3,3 +3,4 @@ pycryptodome
 djongo
 jsonfield
 django-sslserver
+dnspython
