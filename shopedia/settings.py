@@ -25,7 +25,7 @@ SECRET_KEY = 'sn7s$9jslf*z)cygdnvwr7$!&(o5jtyhvs3k@uv7=@7%&6(h@-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['thetmaung.local', '127.0.0.1', '192.168.8.100', 'localhost', 'shopedia.com', "thetmaung.me", "128.199.198.13", "shopedia.thetmaung.me"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -80,6 +80,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'ENFORCE_SCHEMA': True,
         'NAME': 'shopedia',
+        'HOST': 'mongodb+srv://thetmaung:thetmaungpassword@cluster0-lygak.mongodb.net/test?retryWrites=true'
     }
 }
 
