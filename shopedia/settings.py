@@ -25,7 +25,7 @@ SECRET_KEY = 'sn7s$9jslf*z)cygdnvwr7$!&(o5jtyhvs3k@uv7=@7%&6(h@-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['thetmaung.local', '127.0.0.1', '192.168.8.100', 'localhost', 'shopedia.com']
+ALLOWED_HOSTS = ['thetmaung.local', '127.0.0.1', '192.168.8.100', 'localhost', 'shopedia.com', "thetmaung.me", "128.199.198.13", "shopedia.thetmaung.me"]
 
 
 # Application definition
@@ -121,5 +121,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = '/Users/thetmaung/Projects/shopedia/media/'
 MEDIA_URL = '/media/'

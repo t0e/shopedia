@@ -1,4 +1,5 @@
-mysqlclient
+flask
+pycryptodome
 djongo
 jsonfield
 django-sslserver

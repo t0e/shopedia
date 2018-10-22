@@ -17,7 +17,6 @@ def index(request):
 	else:
 		user = json.loads(serializers.serialize('json', User.objects.filter(user_id=request.session['user_id'])))[0]
 
-	print("whoooooooops")
 	shops = json.loads(serializers.serialize('json', Shops.objects.all()))
 	return render(request, 'index.html', {"shops": shops, "user": user})
 
@@ -41,8 +40,8 @@ def register(request):
 				user = User(user_id=millis, username=data['username'], email=data['email'], phone_number=data['phone_number'] ,password=data['password'], register_type=data['register_type'])
 			user.save()
 			request.session['user_id'] = millis
+	print("registration complete")
 	return index(request)
-
 
 @csrf_exempt
 def login(request):

@@ -26,7 +26,7 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="https://apis.google.com/js/api:client.js"></script>
 
-  <meta name="google-signin-client_id" content="586299971638-tkj667lgqna0iiiqfqr4k188kl2nnvdn.apps.googleusercontent.com">
+  <meta name="google-signin-client_id" content="586299971638-mtrmeti936o9eb72nd22ugcfca90u807.apps.googleusercontent.com">
   {% block css %}{% endblock %}
 
   <script>
@@ -34,7 +34,7 @@
     var startApp = function() {
       gapi.load('auth2', function(){
         auth2 = gapi.auth2.init({
-          client_id: '586299971638-tkj667lgqna0iiiqfqr4k188kl2nnvdn.apps.googleusercontent.com',
+          client_id: '586299971638-mtrmeti936o9eb72nd22ugcfca90u807.apps.googleusercontent.com',
           cookiepolicy: 'single_host_origin',
         });
         attachSignin(document.getElementById('gSignBtn'));
@@ -286,7 +286,7 @@
 
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '709597649387726',
+        appId      : 709597649387726,
         cookie     : true,
         xfbml      : true,
         version    : 'v3.1'
@@ -339,6 +339,7 @@
             console.log("Registration complete")
           }
         });
+	location.reload();
       });
     }
 
