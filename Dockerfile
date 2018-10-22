@@ -19,8 +19,6 @@ COPY databasefiles ./databasefiles/
 COPY manage.py config.ini boot.sh version db.sqlite3 auth.py ./
 RUN chmod +x boot.sh
 
-# RUN export PYTHONPATH="$PYTHONPATH:/home/application"
-# ENV FLASK_APP run.py
 RUN chown -R application:application ./
 USER application
 
