@@ -29,12 +29,12 @@ cd databasefiles/shopedia
 Run the following command by replacing the collection_name and filename to each file name in the folder
 
 ```
-mongoimport --db shopedia --collection collection_name --file filename.json
+mongorestore --d shopedia -c collection_name filename.bson
 ```
 
 ## Deployment
 
 In local development server, you can run 
 ```
-python manage.py runsslserver 0.0.0.0:8000
+python manage.py runsslserver 0.0.0.0:443
 ```

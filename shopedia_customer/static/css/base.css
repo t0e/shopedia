@@ -35,3 +35,7 @@ form.searchbox{
 .modal-dialog{
 	max-width: 300px !important;
 }
+
+.profile-photo-small{
+	margin: 5px 15px;
+}
