@@ -8,7 +8,7 @@
 
 
 {% block page-header %}
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('/media/shops/1537453204476.jpg');">
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{% static 'img/shopping-cart.jpg' %}')">
 <div class="container">
     <div class="row">
       <div class="col">
@@ -37,7 +37,7 @@
 				{% for item in items %}
 					<tr>
 						<td class="text-center">
-							<img src="/media/items/{{item.fields.item_image}}" width="100px" height="100px"></td>
+							<img src="https://s3-ap-southeast-1.amazonaws.com/shopedia/items/{{item.fields.item_image}}" width="100px" height="100px"></td>
 						<td class="text-center"><h5 class="title">{{item.fields.item_name}}</h5></td>
 						<td class="text-center">{{ item.fields.price }} Kyats</td>
 						<td class="text-center">{{ item.fields.qty }}</td>

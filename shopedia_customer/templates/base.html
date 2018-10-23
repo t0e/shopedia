@@ -17,7 +17,7 @@
   <!-- Material Design Bootstrap -->
 
   <link rel="stylesheet" href="{% static 'css/uikit.css' %}" />
-  <link href="{% static 'css/material-kit.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/material-kit.min.css' %}" rel="stylesheet" />
   <link href="{% static 'css/base.css' %}" rel="stylesheet" />
 
   <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -25,7 +25,7 @@
   <script src="{% static 'js/uikit-icons.min.js' %}"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="https://apis.google.com/js/api:client.js"></script>
-
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.0.1/mapbox-gl-geocoder.js'></script>
   <meta name="google-signin-client_id" content="586299971638-mtrmeti936o9eb72nd22ugcfca90u807.apps.googleusercontent.com">
   {% block css %}{% endblock %}
 
@@ -55,17 +55,20 @@
           $.ajax({
             type: "POST",
             url: "/register/",
-            dataType: "json",
             data: data,
             success: function(){
               console.log("Registration complete")
-            }
-          });
-          console.log(googleUser.getBasicProfile().getId());
+              document.getElementById("loginModal").classList.remove("show");
+              location.reload();
+            },
+            error:function(){
+             console.log("ajax error")
+           }
+         });
+          
         }, function(error) {
           alert(JSON.stringify(error, undefined, 2));
         });
-
     }
   </script>
 
@@ -100,7 +103,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="" class="dropdown-item">{{ user.fields.username }}</a>
-              <a href="" class="dropdown-item" id="sign-out-btn">Sign out</a>
+              <a class="dropdown-item" id="sign-out-btn">Sign out</a>
             </div>
           </li>
           
@@ -137,12 +140,12 @@
                           <ul class="nav nav-tabs" data-tabs="tabs">
                             <li class="nav-item col">
                               <a class="nav-link active" href="#profile" data-toggle="tab">
-                                <i class="material-icons">face</i> Sign In
+                                <i class="material-icons">exit_to_app</i> Sign In
                               </a>
                             </li>
                             <li class="nav-item col">
                               <a class="nav-link" href="#messages" data-toggle="tab">
-                                <i class="material-icons">chat</i> Sign Up
+                                <i class="material-icons">person_add</i> Sign Up
                               </a>
                             </li>
                           </ul>
@@ -333,13 +336,13 @@
         $.ajax({
           type: "POST",
           url: "/register/",
-          dataType: "json",
           data: data,
           success: function(){
             console.log("Registration complete")
+            document.getElementById("loginModal").classList.remove("show");
+            location.reload()
           }
         });
-	location.reload();
       });
     }
 

@@ -18,8 +18,12 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+# URL PATTERNS HERE
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shopedia_customer.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += staticfiles_urlpatterns()

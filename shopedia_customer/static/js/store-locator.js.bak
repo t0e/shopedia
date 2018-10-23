@@ -3,6 +3,7 @@ $( document ).ready(function() {
   $.ajax({
     url: '/get-shop-list',
     success: function (data) {
+      console.log(data)
 
       if (!('remove' in Element.prototype)) {
         Element.prototype.remove = function() {
@@ -11,19 +12,6 @@ $( document ).ready(function() {
           }
         };
       }
-
-
-      var features = []
-      data.shops.forEach(function(value, key){
-        var location = JSON.parse(value.fields.location)
-        features.push({
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: location
-          }}
-          )
-      });
 
       mapboxgl.accessToken = 'pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2lqbmpqazdlMDBsdnRva284cWd3bm11byJ9.V6Hg2oYJwMAxeoR9GEzkAA';
 
@@ -42,12 +30,11 @@ $( document ).ready(function() {
 
 
       map.on('load', function (e) {
+
+
         map.addSource("places", {
           "type": "geojson",
-          "data": {
-            type: 'FeatureCollection',
-            features: features
-          }
+          "data": stores
         });
         buildLocationList(stores);
 
@@ -139,6 +126,8 @@ $( document ).ready(function() {
 
 
       stores.shops.forEach(function(marker, i) {
+        console.log('markerrrr')
+        console.log(JSON.parse(marker.fields.location)[0]);
         var el = document.createElement('div');
         el.id = "marker-" + i;
         el.className = 'marker';
@@ -164,6 +153,7 @@ $( document ).ready(function() {
        });
       });
 
+
       function flyToStore(shops) {
         map.flyTo({
           center: [JSON.parse(shops.fields.location)[1], JSON.parse(shops.fields.location)[0]],
@@ -184,6 +174,8 @@ $( document ).ready(function() {
 
 
       function buildLocationList(data) {
+       console.log('build location list')
+       console.log(data)
        for (i = 0; i < data.shops.length; i++) {
         var currentFeature = data.shops[i];
         var prop = currentFeature.fields;
@@ -229,13 +221,12 @@ $( document ).ready(function() {
     }
 
 
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        // navigator.geolocation.getCurrentPosition(showPosition);
+
         lat = position.coords["latitude"];
         lng = position.coords["longitude"];
-        console.log('xlat = '+lat);
+        console.log('lat = '+lat);
         console.log('lng = '+lng);
         var marker = new mapboxgl.Marker()
         .setLngLat([lng, lat])
@@ -311,13 +302,10 @@ $( document ).ready(function() {
       }
       );
     }
-    else (
-      alert("Geolocation is not supported by this browser.")
-      )
   },
-error: function(error){
-  console.log("error ="+error);
-}
+  error: function(error){
+    console.log("error ="+error);
+  }
 });
 
 });

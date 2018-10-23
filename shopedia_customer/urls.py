@@ -1,6 +1,7 @@
 from django.conf.urls import url
 
 from . import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -19,3 +20,6 @@ urlpatterns = [
     url(r'^complete-purchase/(?P<data>.+)/', views.complete_purchase, name='complete-purchase'),
     url(r'^about-us/$', views.about_us, name='about-us'),
 ]
+
+
+urlpatterns += staticfiles_urlpatterns()
